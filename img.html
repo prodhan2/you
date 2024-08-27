@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .tab-button.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .gallery img.hidden {
+            display: none;
+        }
+
+        /* Fullscreen Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .modal-caption {
+            margin-top: 10px;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prodhan's Photo Gallery</h1>
+        <div class="tabs">
+            <button class="tab-button active" onclick="showCategory('current')">Current</button>
+            <button class="tab-button" onclick="showCategory('old')">Old</button>
+            <button class="tab-button" onclick="showCategory('family')">Family</button>
+        </div>
+        <div class="gallery">
+            <!-- Current Images -->
+            <img src="https://i.postimg.cc/nLTS4kHR/image.png" alt="Phone Bhoot" class="current" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/Qx0qntLC/image.png" alt="Brahmastra" class="current" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/L479kk58/image.png" alt="Doctor G" class="current" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/SxRHg3P0/image.png" alt="Doctor G" class="current" onclick="openModal(this)">
+
+            <!-- Old Images -->
+            <img src="https://i.postimg.cc/mDQdCg9h/image.png" alt="Avengers" class="old hidden" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/cJ36rbXG/image.png" alt="Inception" class="old hidden" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/kg0xRt3V/image.png" alt="Avatar" class="old hidden" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/mDQdCg9h/image.png" alt="Avengers" class="old hidden" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/L6Ssb5yL/image.png" alt="Avengers" class="old hidden" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/d06LKy0z/image.png" alt="Avengers" class="old hidden" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/1XDxPFQp/image.png" alt="Avengers" class="old hidden" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/RFjRwyz1/image.png" alt="Avengers" class="old hidden" onclick="openModal(this)">
+            <!-- Family Images -->
+
+            <img src="https://i.postimg.cc/Dmk0nd3P/image.png" alt="sujan prodhan" class="family hidden" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/YC8YCy2S/image.png" alt="Abbu" class="family hidden" onclick="openModal(this)">
+            <img src="https://i.postimg.cc/SjF7cXHN/image.png" alt="Abbu" class="family hidden" onclick="openModal(this)">
+            
+                </div>
+    </div>
+
+    <!-- Modal for Fullscreen Image -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <script>
+        function showCategory(category) {
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            const currentButton = Array.from(buttons).find(button => button.textContent.toLowerCase() === category);
+            currentButton.classList.add('active');
+
+            const images = document.querySelectorAll('.gallery img');
+            images.forEach(image => {
+                if (image.classList.contains(category)) {
+                    image.classList.remove('hidden');
+                } else {
+                    image.classList.add('hidden');
+                }
+            });
+        }
+
+        function openModal(imageElement) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImage");
+            const captionText = document.getElementById("modalCaption");
+
+            modal.style.display = "flex";
+            modalImg.src = imageElement.src;
+            captionText.textContent = imageElement.alt;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

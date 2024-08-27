@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <div id="drag-container">
+      <div id="spin-container">
+          <img src="https://scontent.fdac5-1.fna.fbcdn.net/v/t39.30808-6/324019188_3263337107330294_5521105937324320356_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGSoW09EfM7dNGQlM45P7czGzz7GsVyuSsbPPsaxXK5K7l6tC1bITscpHBZxQIP_BM57pUhKmYgsK915WOH33bR&_nc_ohc=teLJvppPCXoQ7kNvgEXQ2qD&_nc_ht=scontent.fdac5-1.fna&oh=00_AYB_KfvE3dxsSR4a3PR1KrMqrdMOaOFNTWvD1-lKGdvDRw&oe=66CD53C8&auto=format&fit=crop&w=500&q=60" />
+    
+          <img src="https://scontent.fdac5-1.fna.fbcdn.net/v/t39.30808-6/307177208_617831453319620_2710271418144476435_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeFwTAlISrgHIZttTS-fhLiO57Xdz4JR5Bzntd3PglHkHITmRxVpKp-n4ZvXB-tvXs9BzFwrD_narvvKovzEB6Co&_nc_ohc=TbWt-w6X37IQ7kNvgEZf1RW&_nc_ht=scontent.fdac5-1.fna&oh=00_AYB6g90lzPLM70kgjPq8LrLv8FxC0TS_prrJu4GR56EO2A&oe=66CD3CAE" />
+    
+          <img src="https://scontent.fdac5-1.fna.fbcdn.net/v/t39.30808-6/274701084_485278803241553_2872352935980629907_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeEiiTf5oSnD1ZQ5hG3MDndbEvvbSQEKmQMS-9tJAQqZA_zH0fdpW_Pqw1xyEJCpz10msVkV1pmxY7ZvDEsNfULQ&_nc_ohc=jLp40OKt0H4Q7kNvgGSaXAN&_nc_ht=scontent.fdac5-1.fna&oh=00_AYB8ZE7UXGL55167RvZwwQsuApzOFlfkRsWQaq26yiCO9w&oe=66CD5F82" />
+    
+          <img src="https://scontent.fdac5-1.fna.fbcdn.net/v/t39.30808-6/344106080_1593291374512265_4056919950777143813_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeF85q1O2A3SlbJU9WLEN7W3OYTCxIZvHrw5hMLEhm8evM3_v0wJ7tQwbxlctPuao0s3BEsVUFtsa6qyKVAkdksI&_nc_ohc=zlbefSYywR8Q7kNvgE_Q2HV&_nc_ht=scontent.fdac5-1.fna&oh=00_AYDC_rdfZHZT-dmPlt0E2RmcohCVF0vTDS_ZCgitJ6zd8g&oe=66CD55A2" />
+          <img src="https://scontent.fdac5-1.fna.fbcdn.net/v/t39.30808-6/280198027_530543028715130_9126909970064558764_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHC_6hrx1uWOSOYqjJfGRcJvNujwxKv9Hu826PDEq_0exSc02emtwK-3JDMgV_1RUQoTgpINELRlGYPIGL_rtlv&_nc_ohc=jzdr6EA0LcgQ7kNvgEGuVmr&_nc_ht=scontent.fdac5-1.fna&oh=00_AYBcSWFWTfNx5CKht3RNljOZO7_Stey8m5LgzqvaHb9_SQ&oe=66CD3DAF" />
+          <img src="https://i.postimg.cc/Y4twZQbS/Design-1.png" />
+          <img src="https://i.postimg.cc/3dD7v8k3/Design.png" />
+            
+    
+        
+    
+        
+        <p>Trisa's Glarry</p>
+      </div>
+      <div id="ground"></div>
+    </div>
+    
+    
+    </body>
+    
+
+<style>
+html,
+body {
+  height: 100%;
+  /* for touch screen laptop */
+  touch-action: none; 
+}
+
+body {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #111;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+#drag-container, #spin-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: rotateX(-10deg);
+          transform: rotateX(-10deg);
+}
+
+#drag-container img, #drag-container video {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 200px;
+  font-size: 50px;
+  text-align: center;
+  box-shadow: 0 0 8px #fff;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+}
+
+#drag-container img:hover, #drag-container video:hover {
+   box-shadow: 0 0 15px #fffd;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+}
+
+#drag-container p {
+  font-family: Serif;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotateX(90deg);
+  color: #fff;
+}
+
+#ground {
+  width: 900px;
+  height: 900px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotateX(90deg);
+  background: -webkit-radial-gradient(center center, farthest-side , #9993, transparent);
+}
+
+
+@keyframes spin {
+  from{
+       transform: rotateY(0deg);
+     } 
+  to{
+       transform: rotateY(360deg);
+  }
+}
+
+@keyframes spinRevert {
+  from{
+         transform: rotateY(360deg);
+  } 
+  
+  to{
+      transform: rotateY(0deg);
+  }
+}
+</style>
+
+<script>
+var radius = 240;
+var autoRotate = true;
+var rotateSpeed = -60;
+var imgWidth = 120; 
+var imgHeight = 170;
+var bgMusicControls = true;
+
+
+
+setTimeout(init, 100);
+
+var obox = document.getElementById('drag-container');
+var ospin = document.getElementById('spin-container');
+var aImg = ospin.getElementsByTagName('img');
+var aVid = ospin.getElementsByTagName('video');
+var aEle = [...aImg, ...aVid];
+
+
+ospin.style.width = imgWidth + "px";
+ospin.style.height = imgHeight + "px";
+
+
+var ground = document.getElementById('ground');
+ground.style.width = radius * 3 + "px";
+ground.style.height = radius * 3 + "px";
+
+function init(delayTime) {
+  for (var i = 0; i < aEle.length; i++) {
+    aEle[i].style.transform = "rotateY(" + (i * (360 / aEle.length)) + "deg) translateZ(" + radius + "px)";
+    aEle[i].style.transition = "transform 1s";
+    aEle[i].style.transitionDelay = delayTime || (aEle.length - i) / 4 + "s";
+  }
+}
+
+function applyTranform(obj) {
+
+  if(tY > 180) tY = 180;
+  if(tY < 0) tY = 0;
+
+  obj.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + (tX) + "deg)";
+}
+
+function playSpin(yes) {
+  ospin.style.animationPlayState = (yes?'running':'paused');
+}
+
+var sX, sY, nX, nY, desX = 0,
+    desY = 0,
+    tX = 0,
+    tY = 10;
+
+
+if (autoRotate) {
+  var animationName = (rotateSpeed > 0 ? 'spin' : 'spinRevert');
+  ospin.style.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
+}
+
+document.onpointerdown = function (e) {
+  clearInterval(obox.timer);
+  e = e || window.event;
+  var sX = e.clientX,
+      sY = e.clientY;
+
+  this.onpointermove = function (e) {
+    e = e || window.event;
+    var nX = e.clientX,
+        nY = e.clientY;
+    desX = nX - sX;
+    desY = nY - sY;
+    tX += desX * 0.1;
+    tY += desY * 0.1;
+    applyTranform(obox);
+    sX = nX;
+    sY = nY;
+  };
+
+  this.onpointerup = function (e) {
+    obox.timer = setInterval(function () {
+      desX *= 0.95;
+      desY *= 0.95;
+      tX += desX * 0.1;
+      tY += desY * 0.1;
+      applyTranform(obox);
+      playSpin(false);
+      if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+        clearInterval(obox.timer);
+        playSpin(true);
+      }
+    }, 17);
+    this.onpointermove = this.onpointerup = null;
+  };
+
+  return false;
+};
+
+document.onmousewheel = function(e) {
+  e = e || window.event;
+  var d = e.wheelDelta / 20 || -e.detail;
+  radius += d;
+  init(1);
+};
+
+</script>
+</html>
